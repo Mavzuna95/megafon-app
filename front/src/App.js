@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Contact from "./components/contacts/Contact";
+import Users from "./components/users/Users";
 import Header from "./components/header/Header";
-import AddUser from "./components/contacts/AddUser";
+import AddUser from "./components/users/AddUser";
 import Favorites from "./components/favorite/Favorites";
 
 function App() {
@@ -38,7 +38,7 @@ function App() {
         <Route
           path="/"
           element={
-            <Contact
+            <Users
               newUsers={newUsers}
               setNewUsers={setNewUsers}
               favorite={favorite}

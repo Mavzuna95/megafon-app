@@ -11,6 +11,19 @@ export default function AddUser({ newUsers, setNewUsers }) {
     img: "",
   });
 
+  const handleImageUpload = (e) => {
+    const selectedfile = e.target.files;
+    if (selectedfile.length > 0) {
+      const [imageFile] = selectedfile;
+      const fileReader = new FileReader();
+      fileReader.onload = () => {
+        const srcData = fileReader.result;
+        setAddUsers({ ...addUsers, img: srcData });
+      };
+      fileReader.readAsDataURL(imageFile);
+    }
+  };
+
   const navigate = useNavigate();
 
   const addNewUser = (user) => {
@@ -35,7 +48,7 @@ export default function AddUser({ newUsers, setNewUsers }) {
       addUsers.phone === "" ||
       addUsers.img === ""
     ) {
-      toast.success("Запольните все поля!!!");
+      toast.error("Запольните все поля!!!");
     } else {
       const user = {
         ...addUsers,
@@ -147,8 +160,10 @@ export default function AddUser({ newUsers, setNewUsers }) {
             </label>
             <div className="mt-1.5">
               <input
+                type="file"
+                accept="image/*"
                 name="img"
-                onChange={(e) => onAddUserChange(e)}
+                onChange={(e) => handleImageUpload(e)}
                 id="company"
                 autoComplete="organization"
                 className="block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"

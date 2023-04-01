@@ -38,13 +38,13 @@ export default function Header({ favorite }) {
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-evenly">
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
+                <Link to="/" className="flex flex-shrink-0 items-center">
                   <img
                     className="hidden h-8 w-auto lg:block"
                     src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                     alt="Your Company"
                   />
-                </div>
+                </Link>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (

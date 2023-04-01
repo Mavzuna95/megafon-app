@@ -27,7 +27,6 @@ app.get("/users", (req, res) => {
 });
 //POST
 app.post("/add_users", (req, res) => {
-  console.log(req.body);
   const { id, name, lastname, role, phone, img } = req.body;
   pool.query(
     `INSERT INTO "add_users" ("id", "name", "lastname", "role", "phone","img") VALUES($1, $2, $3, $4, $5, $6)`,
