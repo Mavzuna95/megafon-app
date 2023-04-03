@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 import { MdDelete } from "react-icons/md";
 import { AiFillStar } from "react-icons/ai";
+import { ToastContainer, toast } from "react-toastify";
 export default function Users({ newUsers, setNewUsers, addToFav, favorite }) {
   const onUserDelete = (id) => {
     setNewUsers(
@@ -17,7 +18,7 @@ export default function Users({ newUsers, setNewUsers, addToFav, favorite }) {
       .then((response) => response.json())
       .then((json) => console.log(json));
 
-    alert("Пользователь удален!");
+    toast.dark("Пользователь удален!");
   };
 
   return (
@@ -30,11 +31,11 @@ export default function Users({ newUsers, setNewUsers, addToFav, favorite }) {
         </div>
         <ul
           role="list"
-          className="grid gap-x-8 gap-y-12 sm:grid-cols-4 sm:gap-y-10 xl:col-span-2"
+          className=" grid gap-x-8 gap-y-12 sm:grid-cols-4 sm:gap-y-10 xl:col-span-2"
         >
           {newUsers.map((person) => (
             <li key={person.id}>
-              <div className="border w-52 h-52 rounded bg-gradient-to-r from-purple-500 to-pink-500 px-4 py-4 items-center gap-x-6">
+              <div className="border bg-gray-400 shadow-lg shadow-indigo-400/100 w-52 h-52 rounded px-4 py-4 items-center gap-x-6">
                 <div className="justify-center">
                   <img
                     className="h-20 w-20 cursor-pointer border rounded-full"
@@ -78,6 +79,7 @@ export default function Users({ newUsers, setNewUsers, addToFav, favorite }) {
           ))}
         </ul>
       </div>
+      <ToastContainer/>
     </div>
   );
 }

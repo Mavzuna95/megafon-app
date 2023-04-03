@@ -13,7 +13,7 @@ const NotFound = () => {
         style={{ height: "400px", width: "400px" }}
       ></Player>
       <Link to="/" className="text-sm font-medium flex justify-center">
-        Перейти в гавную страницу
+        Перейти в главную страницу
       </Link>
     </div>
   );

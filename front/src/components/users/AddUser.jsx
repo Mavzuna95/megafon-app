@@ -11,8 +11,8 @@ export default function AddUser({ newUsers, setNewUsers }) {
     img: "",
   });
 
-  const handleImageUpload = (e) => {
-    const selectedfile = e.target.files;
+  const handleImageUpload = (event) => {
+    const selectedfile = event.target.files;
     if (selectedfile.length > 0) {
       const [imageFile] = selectedfile;
       const fileReader = new FileReader();
@@ -63,7 +63,7 @@ export default function AddUser({ newUsers, setNewUsers }) {
       })
         .then((response) => response.json())
         .then((json) => console.log(json));
-      alert("Ползователь добавлен!");
+      toast.success("Ползователь добавлен!");
 
       addNewUser(user);
       setAddUsers("");
@@ -182,7 +182,7 @@ export default function AddUser({ newUsers, setNewUsers }) {
         </div>
       </form>
       <ToastContainer
-        position="bottom-right"
+        position="top-right"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}

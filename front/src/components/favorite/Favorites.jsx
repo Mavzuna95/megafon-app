@@ -20,7 +20,7 @@ const Favorites = ({ addToFav, favorite }) => {
                     {person.name} {person.lastname}
                   </h3>
                   <p>
-                    phone:{" "}
+                    role:{" "}
                     <span className="text-sm font-semibold leading-6 text-black">
                       {person.role}
                     </span>

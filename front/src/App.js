@@ -6,6 +6,7 @@ import Users from "./components/users/Users";
 import Header from "./components/header/Header";
 import AddUser from "./components/users/AddUser";
 import Favorites from "./components/favorite/Favorites";
+import { ToastContainer, toast } from "react-toastify";
 
 function App() {
   const [newUsers, setNewUsers] = useState([]);
@@ -26,6 +27,8 @@ function App() {
       setFavorite(favorite.filter((el) => el.id !== user.id));
     } else {
       setFavorite([...favorite, user]);
+           toast("Добавлен в избранное!")
+ 
     }
   };
   useEffect(() => {
@@ -55,6 +58,7 @@ function App() {
           element={<Favorites addToFav={addToFav} favorite={favorite} />}
         />
       </Routes>
+      <ToastContainer/>
     </div>
   );
 }
